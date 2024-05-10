@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 // console.log(process.env.DB_PASS)
 
-const uri = `mongodb+srv://rudrolipi:1DmFvNX2ciTWd2f3@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -61,7 +61,7 @@ async function run() {
         await client.connect();
 
         // const serviceCollection = client.db('carDoctor').collection('services');
-        // const bookingCollection = client.db('carDoctor').collection('bookings');
+        const bookCollection = client.db('Alldata').collection('AllBook');
 
         // auth related api
         // app.post('/jwt', logger, async (req, res) => {
@@ -90,9 +90,11 @@ async function run() {
         //     res.send(result);
         // })
 
-        // app.get('/services/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const query = { _id: new ObjectId(id) }
+       app.get('Allbook',async(req,res)=>{
+         const arrydata=bookCollection.find()
+         const data=await arrydata.toArray()
+        res.send(data)
+       })
 
         //     const options = {
         //         // Include only the `title` and `imdb` fields in the returned document
