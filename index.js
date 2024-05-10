@@ -14,8 +14,12 @@ app.use(cors({
         'https://cars-doctor-6c129.web.app',
         'https://cars-doctor-6c129.firebaseapp.com'
     ],
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
+
+app.use(cors(corsConfig))
+app.options("", cors(corsConfig))
 app.use(express.json());
 app.use(cookieParser());
 
