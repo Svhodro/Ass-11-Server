@@ -90,7 +90,7 @@ async function run() {
         //     res.send(result);
         // })
 
-       app.get('Allbook',async(req,res)=>{
+       app.get('/Allbook',async(req,res)=>{
          const arrydata=bookCollection.find()
          const data=await arrydata.toArray()
         res.send(data)
