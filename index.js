@@ -15,9 +15,8 @@ app.use(express.json());
 // app.options("", cors(corsConfig));
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ass-11-iota.vercel.app",      
+    origin: [      
+      "https://ass-11-iota.vercel.app"      
     ],
     credentials: true,
   })
