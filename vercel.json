@@ -24,7 +24,7 @@
           ]
         },
         {
-          "source": "/ass-11-iota.vercel.app/(.*)",
+          "source": "/https://ass-11-iota.vercel.app/(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
