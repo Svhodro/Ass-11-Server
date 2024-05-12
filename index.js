@@ -53,8 +53,7 @@ async function run() {
       const postId = req.params.id;
       const updateDetails = req.body;
       ;
-      // Assuming the request body contains the
-      console.log(postId)
+      // Assuming the request body contains the    
       try {
         const database = client.db("Alldata");
         const books = database.collection("AllBook");
@@ -81,6 +80,63 @@ async function run() {
       const data = await arraydata.toArray();    
       res.send(data);
     });
+
+    // app.delete('/delete', async (req, res) => {
+    //   const id=req.body
+    //   const currentid=id.id
+      
+    //   try {
+    //     // Assuming you have a Product model
+    //     await borrowedbookadd.findByIdAndDeleteOne({_id:currentid});        
+    //     return res.status(200).json({ success: true, msg: 'Book Sucsessfuly return' });
+    //   } catch (err) {
+    //     console.error(err);
+    //     return res.status(500).json({ success: false, msg: 'Error returning Book' });
+    //   }
+    // });
+    // app.put("/updatequntity", async (req, res) => {
+    
+    //   const Bookname = req.body;
+    //   ;
+    //   // Assuming the request body contains the
+    //   // console.log(Bookname.Bookname,Bookname.quantity)
+    //   // try {
+    //   //   const database = client.db("Alldata");
+    //   //   const books = database.collection("AllBook");
+    //   //   // Create a filter for movies with the title "Random Harvest"
+    //   //   const filter = { name:Bookname.Bookname };
+    //   //         /* Set the upsert option to insert a document if no documents match
+    //   //     the filter */
+    //   //   const options = { upsert: true };
+    //   //   // Specify the update to set a value for the plot field
+    //   //   const updateDoc = {
+    //   //     $set: {
+    //   //       quantity:Bookname.quantity ,
+    //   //     },
+    //   //   };
+
+    //   //   const result = await books.updateOne(filter, updateDoc, options);
+    //   // } catch (error) {
+    //   //   console.log(error)
+    //   // }
+    // });
+//add data in all books
+app.post('/AddBookData', async (req, res) => {
+  try {
+    const { img,name,quantity,author,category,des,rateing } = req.body; // Assuming you have these fields
+    const newTutorial = {  img,name,quantity,author,category,des,rateing  };
+    console.log(newTutorial)
+    // Insert the new tutorial document into the 'tutorials' collection
+    const result = await date.insertOne(newTutorial);
+     res.send('data add sucsesfully')
+    
+  } catch (error) {
+    console.error('Error creating tutorial:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+    
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
