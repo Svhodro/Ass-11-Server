@@ -122,18 +122,15 @@ async function run() {
     // });
 //add data in all books
 app.post('/AddBookData', async (req, res) => {
-  try {
+
     const { img,name,quantity,author,category,des,rateing } = req.body; // Assuming you have these fields
     const newTutorial = {  img,name,quantity,author,category,des,rateing  };
-    console.log(newTutorial)
+   
     // Insert the new tutorial document into the 'tutorials' collection
     const result = await date.insertOne(newTutorial);
      res.send('data add sucsesfully')
     
-  } catch (error) {
-    console.error('Error creating tutorial:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
+ 
 });
 
     
