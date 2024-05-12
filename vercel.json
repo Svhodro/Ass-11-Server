@@ -10,10 +10,8 @@
         {
             "src": "/(.*)",
             "dest": "/",
-            "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-            "headers": {
-                "Access-Control-Allow-Origin": "*"
-              }
+            "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
+            
         }
     ]
 }
