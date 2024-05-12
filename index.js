@@ -5,7 +5,6 @@ const app = express();
 const port = 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
-app.use(cors());
 app.use(express.json());
 // const corsConfig = {
 //   origin: "*",
@@ -14,6 +13,15 @@ app.use(express.json());
 // };
 // app.use(cors(corsConfig));
 // app.options("", cors(corsConfig));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ass-11-iota.vercel.app",      
+    ],
+    credentials: true,
+  })
+);
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
