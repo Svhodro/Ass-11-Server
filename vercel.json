@@ -10,24 +10,7 @@
         {
             "src": "/(.*)",
             "dest": "/",
-            "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-            "headers": {
-                "Access-Control-Allow-Origin": "*"
-              }
+            "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
         }
-    ],
-    "headers": [
-        {
-          "source": "/(.*)",
-          "headers": [
-            { "key": "Access-Control-Allow-Origin", "value": "*" }
-          ]
-        },
-        {
-          "source": "/https://ass-11-iota.vercel.app/(.*)",
-          "headers": [
-            { "key": "Access-Control-Allow-Origin", "value": "*" }
-          ]
-        }  
     ]
 }
