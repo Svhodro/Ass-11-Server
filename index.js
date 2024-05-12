@@ -10,10 +10,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [      
-      "https://ass-11-iota.vercel.app", 
-      "https://ass-11-iota.vercel.app",
-    ],
+    origin: "*",
     credentials: true,
   })
 );
