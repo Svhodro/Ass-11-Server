@@ -7,13 +7,13 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
 app.use(cors());
 app.use(express.json());
-const corsConfig = {
-  origin: "",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
-app.use(cors(corsConfig));
-app.options("", cors(corsConfig));
+// const corsConfig = {
+//   origin: "*",
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+// };
+// app.use(cors(corsConfig));
+// app.options("", cors(corsConfig));
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
