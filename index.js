@@ -13,7 +13,11 @@ app.use(express.json());
 // };
 // app.use(cors(corsConfig));
 // app.options("", cors(corsConfig));
-app.use(cors())
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
