@@ -7,14 +7,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
 
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-         ],
-    credentials: true,
-  })
-);
+app.use(cors())
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
