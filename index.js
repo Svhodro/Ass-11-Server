@@ -6,14 +6,13 @@ const port = 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
 
-const corsConfig = {
-  origin: "",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-};
-app.use(cors(corsConfig));
-app.options("", cors(corsConfig));
-
+app.use(express.json());
+app.use(cors())
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -133,26 +132,25 @@ app.post('/AddBookData', async (req, res) => {
 });
 
 app.put('/Update', async (req, res) => {
-  try {
-    const BookId = req.body
-   const Id=BookId.Bookid
-  
-    const filter = { _id:new ObjectId(Id)  };
-    const options = { upsert: true };
-    const updatedoc=req.body
-     // Assuming you have the updated data
-     const updateDoc = {
-      $set: updatedoc
-    };
-    // Find the tutorial by ID and update it
-  //  const movie = await date.findOne(query);
-  const result = await date.updateOne(filter, updateDoc, options);
-   console.log(result)
+  // try {
+    const Id = req.body
+    console.log(Id)
+  //   const filter = { _id:new ObjectId(Id)  };
+  //   const options = { upsert: true };
+  //   const updatedoc=req.body
+  //    // Assuming you have the updated data
+  //    const updateDoc = {
+  //     $set: updatedoc
+  //   };
+  //   // Find the tutorial by ID and update it
+  // //  const movie = await date.findOne(query);
+  // const result = await date.updateOne(filter, updateDoc, options);
+  //  console.log(result)
     
-  } catch (error) {
-    console.error('Error updating tutorial:', error);
-    res.status(500).json({ message: 'Error updating tutorial' });
-  }
+  // } catch (error) {
+  //   console.error('Error updating tutorial:', error);
+  //   res.status(500).json({ message: 'Error updating tutorial' });
+  // }
 });    
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
