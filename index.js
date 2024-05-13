@@ -7,10 +7,10 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
 
 app.use(express.json());
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app");
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  next();
+});
 app.use(
   cors({
     origin: [
