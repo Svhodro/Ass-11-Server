@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://cardoctor-bd.web.app",
+      "https://ass-11-server-ten.vercel.app/",
       "https://cardoctor-bd.firebaseapp.com",
     ],
     credentials: true,
@@ -141,7 +141,9 @@ app.post('/AddBookData', async (req, res) => {
 
 app.put('/Update', async (req, res) => {
   try {
-    const Id = req.params.id;
+    const BookId = req.body
+   const Id=BookId.Bookid
+  
     const filter = { _id:new ObjectId(Id)  };
     const options = { upsert: true };
     const updatedoc=req.body
