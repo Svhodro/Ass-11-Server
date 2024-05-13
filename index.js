@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require('cors');
 require("dotenv").config();
 const app = express();
 const port = 5000;
@@ -7,11 +7,13 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
 
 app.use(express.json());
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app/*");
-  next();
-});
-
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app/*");
+//   next();
+// });
+app.use(cors({
+  origin: 'https://ass-11-iota.vercel.app',
+}));
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
@@ -131,7 +133,7 @@ app.post('/AddBookData', async (req, res) => {
  
 });
 
-app.put('/Update/:id', async (req, res) => {
+app.put('/Update/:id',cors(), async (req, res) => {
   try {
     const Id = req.params.id;
     const filter = { _id:new ObjectId(Id)  };
