@@ -11,16 +11,11 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ass-11-server-ten.vercel.app/",
-      "https://cardoctor-bd.firebaseapp.com",
-    ],
-    credentials: true,
-  })
-);
+app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
