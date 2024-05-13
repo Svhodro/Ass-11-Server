@@ -5,12 +5,9 @@ const app = express();
 const port = 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
-const corsOptions = {
-  credentials: true,
-  origin: ['http://localhost:5173', 'https://ass-11-iota.vercel.app/'] // Whitelist the domains you want to allow
-};
 
-app.use(cors(corsOptions))
+
+app.use(cors())
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
