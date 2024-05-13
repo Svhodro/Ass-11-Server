@@ -12,7 +12,7 @@ app.use(express.json());
 //   next();
 // });
 app.use(cors({
-  origin: 'https://ass-11-iota.vercel.app',
+  origin: '*',
 }));
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
@@ -133,7 +133,7 @@ app.post('/AddBookData', async (req, res) => {
  
 });
 
-app.put('/Update/:id',cors(), async (req, res) => {
+app.put('/Update/:id', async (req, res) => {
   try {
     const Id = req.params.id;
     const filter = { _id:new ObjectId(Id)  };
