@@ -8,7 +8,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 app.use(express.json());
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app/");
+  res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app/*");
   next();
 });
 
