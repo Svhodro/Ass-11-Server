@@ -131,26 +131,25 @@ app.post('/AddBookData', async (req, res) => {
  
 });
 
-app.put('/Update', async (req, res) => {
-  // try {
-    const Id = req.body
-    console.log(Id)
-  //   const filter = { _id:new ObjectId(Id)  };
-  //   const options = { upsert: true };
-  //   const updatedoc=req.body
-  //    // Assuming you have the updated data
-  //    const updateDoc = {
-  //     $set: updatedoc
-  //   };
-  //   // Find the tutorial by ID and update it
-  // //  const movie = await date.findOne(query);
-  // const result = await date.updateOne(filter, updateDoc, options);
-  //  console.log(result)
-    
-  // } catch (error) {
-  //   console.error('Error updating tutorial:', error);
-  //   res.status(500).json({ message: 'Error updating tutorial' });
-  // }
+app.put('/Update/:id', async (req, res) => {
+  try {
+    const Id = req.params.id;
+    const filter = { _id:new ObjectId(Id)  };
+    const options = { upsert: true };
+    const updatedoc=req.body
+     // Assuming you have the updated data
+     const updateDoc = {
+      $set: updatedoc
+    };
+    // Find the tutorial by ID and update it
+  //  const movie = await date.findOne(query);
+  const result = await date.updateOne(filter, updateDoc, options);
+   console.log(result)
+
+  } catch (error) {
+    console.error('Error updating tutorial:', error);
+    res.status(500).json({ message: 'Error updating tutorial' });
+  }
 });    
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
