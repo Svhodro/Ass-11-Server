@@ -1,5 +1,5 @@
 const express = require("express");
-
+// const cors = require('cors');
 require("dotenv").config();
 const app = express();
 const port = 5000;
@@ -8,9 +8,12 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 app.use(express.json());
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "ass-11-iota.vercel.app");
+  res.setHeader("Access-Control-Allow-Origin", "https://ass-11-iota.vercel.app");
   next();
 });
+// app.use(cors({
+//   origin: '*',
+// }));
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASS}@ass-11.c2lx29d.mongodb.net/?retryWrites=true&w=majority&appName=Ass-11`;
 
