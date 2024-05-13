@@ -133,7 +133,7 @@ app.post('/AddBookData', async (req, res) => {
  
 });
 
-app.put('/Update/:id', async (req, res) => {
+app.put('/Update', async (req, res) => {
   try {
     const Id = req.params.id;
     const filter = { _id:new ObjectId(Id)  };
